@@ -1,0 +1,25 @@
+@model UserInfo
+
+@{
+    ViewBag.Title = "Details";
+    string WillAttend = Model.WillAttend == true ? "Evet" : "Hayır";
+    string className = Model.WillAttend == true ? "bg-success" : "bg-danger";
+}
+
+<div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">
+                <strong>Mail Adresi:</strong> @Model.Email
+            </p>
+            <p class="card-text">
+                <strong>Telefon Numarası:</strong> @Model.Phone
+            </p>
+            <p class="card-text">
+                <strong>Katılım Durumu:</strong> 
+                <span class="badge @className">@WillAttend</span>
+            </p>
+        </div>
+    </div>
+</div>

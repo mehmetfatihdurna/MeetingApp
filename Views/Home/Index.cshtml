@@ -10,7 +10,7 @@
     <ul class="list-group list-group-flush">
         <li class="list-group-item">@Model.Location</li>
         <li class="list-group-item">@Model.Date.ToString("dd/MM/yyyy HH:mm:ss")</li>
-        <li class="list-group-item">Katılımcı Sayısı: @Model.NumberOfPeople</li>
+        <li class="list-group-item">Katılımcı Sayısı: @Repository.Users.Where(user => user.WillAttend==true).Count()</li>
     </ul>
 </div>
 

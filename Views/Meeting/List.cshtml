@@ -1,3 +1,4 @@
+@model List<UserInfo>
 @{
     ViewBag.Title = "Katılımcı Listesi";
 }
@@ -11,20 +12,24 @@
         <td></td>
     </thead>
     <tbody>
-        <tr>
-            <td>Sadık Turan</td>
-            <td>Evet</td>
-            <td>
-                <a href="" class="btn btn-sm btn-primary">Detay</a>
-            </td>
-        </tr>
 
-        <tr>
-            <td>Mehmet Fatih Durna</td>
-            <td>Evet</td>
-            <td>
-                <a href="" class="btn btn-sm btn-primary">Detay</a>
-            </td>
-        </tr>
+        @foreach(UserInfo user in Model){
+
+            var durum = user.WillAttend ? "Evet" : "Hayır";
+            var classname = user.WillAttend ? "table-success" : "table-danger";
+            <tr class="@classname">
+                <td>@user.Name</td>
+                <td>@durum</td>                
+                <td>
+                    <a asp-controller="meeting" asp-action="details" asp-route-id="@user.Id" class="btn btn-sm btn-primary">Detay</a>
+                </td>
+            </tr>
+        }   
     </tbody>
 </table>
+
+<div class="card">
+    <div class="card-body">
+        <p>Katılımcı Sayısı: @Model.Where(user => user.WillAttend == true).Count()</p>
+    </div>
+</div>
