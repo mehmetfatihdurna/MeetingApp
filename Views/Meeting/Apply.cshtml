@@ -2,7 +2,29 @@
     ViewBag.Title = "Başvuru Formu";
 }
 
-<h1 class="h4">Toplantı Katılım Formu</h1>
-<form action="">
+<h1 class="h4 text-center">Toplantı Katılım Formu</h1>
+<form action="post">
+    <div class="mb-3">
+        <label for="Name" class="form-label">İsim</label>
+        <input name="Name" type="text" id="Name" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="PhoneNumber" class="form-label">Telefon</label>
+        <input name="PhoneNumber" type="tel" id="PhoneNumber" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="Email" class="form-label">Mail Adresi</label>
+        <input name="Email" type="email" id="Email" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="WillAttend" class="form-label">Katılıyor Musunuz?</label>
+        <select name="WillAttend" id="WillAttend" class="form-select">
+            <option value="true">Evet, Katılıyorum</option>
+            <option value="false">Hayır, Katılmıyorum</option>
+        </select>
+    </div>
     <button class="btn btn-primary" type="submit">Kaydet</button>
 </form>
