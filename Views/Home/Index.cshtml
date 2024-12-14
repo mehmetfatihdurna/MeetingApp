@@ -1,3 +1,17 @@
-<h1>
-    Home Controller
-</h1>
+@model MeetingInfo
+@{
+    ViewBag.Title = "Anasayfa";
+    Layout = "_Layout2";
+}
+<h1 class="h4">@ViewBag.Selamlama @ViewBag.UserName Saat: @ViewData["Saat"]:@ViewData["Dakika"]</h1>
+<p>Toplantı Katılım Durumunuzu Bildirin</p>
+
+<div class="card my-2">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">@Model.Location</li>
+        <li class="list-group-item">@Model.Date.ToString("dd/MM/yyyy HH:mm:ss")</li>
+        <li class="list-group-item">Katılımcı Sayısı: @Model.NumberOfPeople</li>
+    </ul>
+</div>
+
+<a class="btn btn-sm btn-outline-primary" href="/meeting/apply">Başvuru Yap</a>
